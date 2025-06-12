@@ -19,7 +19,7 @@
   },
   "servers": [
     {
-      "url": "https://api.buu.fun/creative-engine/api/v1"
+      "url": "https://api.buu.fun/v1"
     }
   ],
   "security": [
