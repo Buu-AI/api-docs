@@ -1,8 +1,8 @@
 {
-  "name": "zudoku-testing",
-  "version": "0.1.0",
+  "name": "@buu-ai/api-docs",
+  "version": "0.0.1",
   "type": "module",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "zudoku dev",
     "build": "zudoku build",
