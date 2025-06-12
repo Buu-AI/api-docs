@@ -1,0 +1,1745 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Buu.fun API",
+    "description": "This is the API documentation for the Creative Engine Server, which provides endpoints for managing chats, models, NFTs, and tools.\n\nThe API allows users to interact with the Creative Engine platform, generate 3D models from prompts, images, or references, and create NFTs.",
+    "termsOfService": "https://buu.fun/terms",
+    "contact": {
+      "email": "support@buu.fun"
+    },
+    "license": {
+      "name": "Proprietary",
+      "url": "https://buu.fun/license"
+    },
+    "version": "1.0.0"
+  },
+  "externalDocs": {
+    "description": "Find out more about Creative Engine",
+    "url": "https://buu.fun"
+  },
+  "servers": [
+    {
+      "url": "https://api.buu.fun/creative-engine/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "models",
+      "description": "Model operations"
+    },
+    {
+      "name": "tools",
+      "description": "Tools operations"
+    }
+  ],
+  "paths": {
+    "/models": {
+      "get": {
+        "tags": ["models"],
+        "summary": "Get models",
+        "description": "Gets a list of models",
+        "operationId": "getModels",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AuthorizationHeader"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "$ref": "#/components/schemas/Limit"
+            },
+            "description": "The maximum number of models to return"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "$ref": "#/components/schemas/Offset"
+            },
+            "description": "The number of models to skip before starting to collect the result set"
+          },
+          {
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "$ref": "#/components/schemas/OrderBy"
+            },
+            "description": "The field to order the results by"
+          },
+          {
+            "in": "query",
+            "name": "orderDirection",
+            "schema": {
+              "$ref": "#/components/schemas/OrderDirection"
+            },
+            "description": "The direction to order the results (asc or desc)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelPage"
+                },
+                "example": {
+                  "items": [
+                    {
+                      "_id": "b353a456-ea7e-460c-8eca-a45694869948",
+                      "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+                      "sessionId": "22abe7e6-2e00-4594-a50c-de64e9f69a28",
+                      "messageId": "c2b3925c-e542-4841-888b-78e670b714d0",
+                      "image": {
+                        "_id": "717b4289-4661-4f93-9c77-bf4ca8e89df7",
+                        "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+                        "sessionId": "22abe7e6-2e00-4594-a50c-de64e9f69a28",
+                        "messageId": "c2b3925c-e542-4841-888b-78e670b714d0",
+                        "alt": "98c12263-db3c-4499-81e8-2e77a6f9ff2c.png",
+                        "keyS3": "development/requests/toolu_vrtx_01BqUbFnD38MQ1C4tomkAHCz/medias/98c12263-db3c-4499-81e8-2e77a6f9ff2c.png",
+                        "size": 710269,
+                        "type": "image/png",
+                        "url": "https://cdn.buu.fun/development/requests/toolu_vrtx_01BqUbFnD38MQ1C4tomkAHCz/medias/98c12263-db3c-4499-81e8-2e77a6f9ff2c.png",
+                        "createdAt": "2025-06-06T21:17:24.420Z",
+                        "updatedAt": "2025-06-06T21:17:24.420Z"
+                      },
+                      "imageId": "717b4289-4661-4f93-9c77-bf4ca8e89df7",
+                      "mesh": {
+                        "_id": "5ae26b00-2dc6-41b9-8b5c-5997235c65a2",
+                        "teamId": null,
+                        "sessionId": null,
+                        "messageId": null,
+                        "alt": "12022417-79cb-4a37-af19-953c3b8ec2d4-e2.glb",
+                        "keyS3": "/06-25/12022417-79cb-4a37-af19-953c3b8ec2d4-e2/b563c881.glb",
+                        "size": null,
+                        "type": "application/octet-stream",
+                        "url": "https://cdn.buu.fun/06-25/12022417-79cb-4a37-af19-953c3b8ec2d4-e2/b563c881.glb",
+                        "createdAt": "2025-06-06T21:18:47.133Z",
+                        "updatedAt": "2025-06-06T21:18:47.133Z"
+                      },
+                      "meshId": "5ae26b00-2dc6-41b9-8b5c-5997235c65a2",
+                      "optimizedMesh": {
+                        "_id": "5fd95e64-92c9-43c4-a690-dcc95b0895b1",
+                        "teamId": null,
+                        "sessionId": null,
+                        "messageId": null,
+                        "alt": "64d163ea-07e3-4587-9c95-bce30efbfed3-e1.glb",
+                        "keyS3": "/06-25/64d163ea-07e3-4587-9c95-bce30efbfed3-e1/9e66a889.glb",
+                        "size": null,
+                        "type": "application/octet-stream",
+                        "url": "https://cdn.buu.fun/06-25/64d163ea-07e3-4587-9c95-bce30efbfed3-e1/9e66a889.glb",
+                        "createdAt": "2025-06-06T21:19:07.771Z",
+                        "updatedAt": "2025-06-06T21:19:07.771Z"
+                      },
+                      "optimizedMeshId": "5fd95e64-92c9-43c4-a690-dcc95b0895b1",
+                      "multiview": {
+                        "_id": "9b2c4e2d-7c8c-4fd5-962c-ec13ca2c36cc",
+                        "teamId": null,
+                        "sessionId": null,
+                        "messageId": null,
+                        "alt": "0b8a522b-434c-4ffb-a620-7a4ffb10142b-e2.png",
+                        "keyS3": "/06-25/0b8a522b-434c-4ffb-a620-7a4ffb10142b-e2/fe3093b8.png",
+                        "size": null,
+                        "type": "image/png",
+                        "url": "https://cdn.buu.fun/06-25/0b8a522b-434c-4ffb-a620-7a4ffb10142b-e2/fe3093b8.png",
+                        "createdAt": "2025-06-06T21:19:28.385Z",
+                        "updatedAt": "2025-06-06T21:19:28.385Z"
+                      },
+                      "multiviewId": "9b2c4e2d-7c8c-4fd5-962c-ec13ca2c36cc",
+                      "texturedMesh": {
+                        "_id": "0ba2deec-8702-4a3c-8dd2-b6a22e10231a",
+                        "teamId": null,
+                        "sessionId": null,
+                        "messageId": null,
+                        "alt": "94f9f6ac-7c1b-4ce8-b25c-88d1482a5902-e1.glb",
+                        "keyS3": "/06-25/94f9f6ac-7c1b-4ce8-b25c-88d1482a5902-e1/856793d6.glb",
+                        "size": null,
+                        "type": "application/octet-stream",
+                        "url": "https://cdn.buu.fun/06-25/94f9f6ac-7c1b-4ce8-b25c-88d1482a5902-e1/856793d6.glb",
+                        "createdAt": "2025-06-06T21:19:43.874Z",
+                        "updatedAt": "2025-06-06T21:19:43.874Z"
+                      },
+                      "texturedMeshId": "0ba2deec-8702-4a3c-8dd2-b6a22e10231a",
+                      "views": [],
+                      "viewsIds": [],
+                      "texture": null,
+                      "textureId": null,
+                      "createdAt": "2025-06-06T21:17:24.420Z",
+                      "updatedAt": "2025-06-06T21:26:21.903Z",
+                      "prompt": null,
+                      "style": null,
+                      "nftId": "d7760378-9bf8-4cc6-a166-97d3f9402822",
+                      "toolRequestId": "toolu_vrtx_01BqUbFnD38MQ1C4tomkAHCz",
+                      "toolRequest": {
+                        "_id": "toolu_vrtx_01BqUbFnD38MQ1C4tomkAHCz",
+                        "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+                        "sessionId": "22abe7e6-2e00-4594-a50c-de64e9f69a28",
+                        "messageId": "c2b3925c-e542-4841-888b-78e670b714d0",
+                        "type": "GENERATE_MODELS_FROM_REFERENCES",
+                        "priority": 1,
+                        "payload": "{\"imageUrls\":[\"https://images.unsplash.com/photo-1748879117589-0250bbe34916?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"],\"instructions\":\"Create a full body 3D model of this dinosaur, maintaining its proportions and features\",\"texture\":\"fast\",\"numberOfFaces\":\"20k\"}",
+                        "details": {},
+                        "credits": 1,
+                        "references": [],
+                        "status": "PENDING",
+                        "message": "Building tool request",
+                        "percentage": 0,
+                        "createdAt": "2025-06-06T21:17:24.420Z",
+                        "updatedAt": "2025-06-06T21:17:24.420Z"
+                      }
+                    }
+                  ],
+                  "metadata": {
+                    "limit": 10,
+                    "offset": 0,
+                    "orderBy": "createdAt",
+                    "orderDirection": "asc",
+                    "numElements": 12,
+                    "page": 1,
+                    "pages": 2
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/models/{modelId}": {
+      "get": {
+        "tags": ["models"],
+        "summary": "Get a model",
+        "description": "Gets a model by ID",
+        "operationId": "getModel",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AuthorizationHeader"
+          },
+          {
+            "name": "modelId",
+            "in": "path",
+            "description": "ID of the model",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Model"
+                },
+                "example": {
+                  "_id": "840db8e2-557c-46a5-a236-3ccd89cdeff8",
+                  "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+                  "sessionId": null,
+                  "messageId": "525bc864-9369-4689-8300-1c441f76e486",
+                  "image": {
+                    "_id": "36747ea9-bde9-443d-8d74-78196a058597",
+                    "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+                    "sessionId": null,
+                    "messageId": "525bc864-9369-4689-8300-1c441f76e486",
+                    "alt": "a6a87ac7-f7a4-4e9e-a919-e6ac903ba56e.png",
+                    "keyS3": "development/requests/8307d4c2-af7d-4a30-bb5c-98241d1d75d8/medias/a6a87ac7-f7a4-4e9e-a919-e6ac903ba56e.png",
+                    "size": 2079431,
+                    "type": "image/png",
+                    "url": "https://cdn.buu.fun/development/requests/8307d4c2-af7d-4a30-bb5c-98241d1d75d8/medias/a6a87ac7-f7a4-4e9e-a919-e6ac903ba56e.png",
+                    "createdAt": "2025-06-12T12:17:42.892Z",
+                    "updatedAt": "2025-06-12T12:17:42.892Z"
+                  },
+                  "imageId": "36747ea9-bde9-443d-8d74-78196a058597",
+                  "mesh": {
+                    "_id": "7ee878b0-d2f2-4ad6-8f13-205215b50a84",
+                    "teamId": null,
+                    "sessionId": null,
+                    "messageId": null,
+                    "alt": "a513aa98-a456-4515-a06f-199859e34a8e-e1.glb",
+                    "keyS3": "/06-25/a513aa98-a456-4515-a06f-199859e34a8e-e1/477a05d2.glb",
+                    "size": null,
+                    "type": "application/octet-stream",
+                    "url": "https://cdn.buu.fun/06-25/a513aa98-a456-4515-a06f-199859e34a8e-e1/477a05d2.glb",
+                    "createdAt": "2025-06-12T12:19:13.302Z",
+                    "updatedAt": "2025-06-12T12:19:13.302Z"
+                  },
+                  "meshId": "7ee878b0-d2f2-4ad6-8f13-205215b50a84",
+                  "optimizedMesh": {
+                    "_id": "7355cd7a-5bb7-40e6-886e-d8ec50330f30",
+                    "teamId": null,
+                    "sessionId": null,
+                    "messageId": null,
+                    "alt": "3d361488-6a45-4ec6-bb20-5df63d32d908-e1.glb",
+                    "keyS3": "/06-25/3d361488-6a45-4ec6-bb20-5df63d32d908-e1/114dad84.glb",
+                    "size": null,
+                    "type": "application/octet-stream",
+                    "url": "https://cdn.buu.fun/06-25/3d361488-6a45-4ec6-bb20-5df63d32d908-e1/114dad84.glb",
+                    "createdAt": "2025-06-12T12:19:54.647Z",
+                    "updatedAt": "2025-06-12T12:19:54.647Z"
+                  },
+                  "optimizedMeshId": "7355cd7a-5bb7-40e6-886e-d8ec50330f30",
+                  "multiview": null,
+                  "multiviewId": null,
+                  "texturedMesh": null,
+                  "texturedMeshId": null,
+                  "views": [],
+                  "viewsIds": [],
+                  "texture": null,
+                  "textureId": null,
+                  "createdAt": "2025-06-12T12:17:42.892Z",
+                  "updatedAt": "2025-06-12T12:19:54.648Z",
+                  "prompt": "a cat",
+                  "style": "lowPoly",
+                  "nftId": null,
+                  "toolRequestId": "8307d4c2-af7d-4a30-bb5c-98241d1d75d8",
+                  "toolRequest": {
+                    "_id": "8307d4c2-af7d-4a30-bb5c-98241d1d75d8",
+                    "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+                    "sessionId": null,
+                    "messageId": null,
+                    "type": "GENERATE_MODELS_FROM_PROMPT",
+                    "priority": 1,
+                    "payload": "{\"prompt\":\"a cat\",\"style\":\"lowPoly\",\"texture\":\"fast\",\"numberOfFaces\":\"10k\"}",
+                    "details": {},
+                    "credits": 1,
+                    "references": [],
+                    "status": "PENDING",
+                    "message": "Building tool request",
+                    "percentage": 0,
+                    "createdAt": "2025-06-12T12:17:42.892Z",
+                    "updatedAt": "2025-06-12T12:17:42.892Z"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/tools/generate-model-from-prompt": {
+      "post": {
+        "tags": ["tools"],
+        "summary": "Generate a model from a prompt",
+        "description": "Generates a 3D model from a text prompt",
+        "operationId": "generateModelFromPrompt",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AuthorizationHeader"
+          },
+          {
+            "$ref": "#/components/parameters/ContentTypeHeader"
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerateModelFromPrompt"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ToolRequestConfirmation"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/tools/generate-model-from-image": {
+      "post": {
+        "tags": ["tools"],
+        "summary": "Generate a model from an image",
+        "description": "Generates a 3D model from an image",
+        "operationId": "generateModelFromImage",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AuthorizationHeader"
+          },
+          {
+            "$ref": "#/components/parameters/ContentTypeHeader"
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerateModelFromImage"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ToolRequestConfirmation"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/tools/generate-model-from-references": {
+      "post": {
+        "tags": ["tools"],
+        "summary": "Generate a model from references",
+        "description": "Generates a 3D model from reference images",
+        "operationId": "generateModelFromReferences",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AuthorizationHeader"
+          },
+          {
+            "$ref": "#/components/parameters/ContentTypeHeader"
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/GenerateModelFromReferences"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ToolRequestConfirmation"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/tools/edit-model": {
+      "post": {
+        "tags": ["tools"],
+        "summary": "Edit a model",
+        "description": "Edits an existing 3D model",
+        "operationId": "editModel",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AuthorizationHeader"
+          },
+          {
+            "$ref": "#/components/parameters/ContentTypeHeader"
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/EditModel"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ToolRequestConfirmation"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MessageRole": {
+        "type": "string",
+        "enum": ["user", "assistant", "tool"],
+        "description": "The role of the message sender"
+      },
+      "ToolRequestType": {
+        "type": "string",
+        "enum": [
+          "GENERATE_NFT",
+          "GENERATE_MODELS_FROM_PROMPT",
+          "GENERATE_MODELS_FROM_REFERENCES",
+          "GENERATE_MODELS_FROM_IMAGE",
+          "GENERATE_MODELS_FROM_EDIT"
+        ],
+        "description": "The type of the tool"
+      },
+      "ToolRequestPriority": {
+        "type": "integer",
+        "enum": [0, 1, 2, 3],
+        "description": "The priority of the tool (0=LOW, 1=MEDIUM, 2=HIGH, 3=URGENT)"
+      },
+      "ToolRequestStatus": {
+        "type": "string",
+        "enum": ["PENDING", "IN_QUEUE", "IN_PROGRESS", "COMPLETED", "FAILED", "CANCELLED"],
+        "description": "The status of the tool"
+      },
+      "TextureType": {
+        "type": "string",
+        "enum": ["fast", "hd"],
+        "description": "The type of texture to apply to the model"
+      },
+      "NumberOfFaces": {
+        "type": "string",
+        "enum": ["10k", "20k", "50k", "100k"],
+        "description": "The number of faces for the model"
+      },
+      "NumberOfModels": {
+        "type": "integer",
+        "description": "The number of models to generate"
+      },
+      "Style": {
+        "type": "string",
+        "enum": [
+          "realistic",
+          "lowPoly",
+          "voxel",
+          "stylized",
+          "toon",
+          "sciFi",
+          "fantasy",
+          "wireframe",
+          "clay",
+          "metallic",
+          "cute",
+          "isometric",
+          "weapons",
+          "environment"
+        ],
+        "description": "The style of the model to generate"
+      },
+      "TokenStandard": {
+        "type": "integer",
+        "enum": [0, 1, 2, 3, 4, 5],
+        "description": "The token standard (0=NonFungible, 1=FungibleAsset, 2=Fungible, 3=NonFungibleEdition, 4=ProgrammableNonFungible, 5=ProgrammableNonFungibleEdition)"
+      },
+      "HandledError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Media": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "nullable": true
+          },
+          "keyS3": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "integer",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamId": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NftFile": {
+        "type": "object",
+        "required": ["uri", "type"],
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "cdn": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "NftProperties": {
+        "type": "object",
+        "required": ["files", "category"],
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NftFile"
+            }
+          },
+          "category": {
+            "type": "string"
+          }
+        }
+      },
+      "NftAttribute": {
+        "type": "object",
+        "required": ["trait_type", "value"],
+        "properties": {
+          "trait_type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "NftMetadata": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "external_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "animation_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NftAttribute"
+            },
+            "nullable": true
+          },
+          "properties": {
+            "$ref": "#/components/schemas/NftProperties",
+            "nullable": true
+          }
+        }
+      },
+      "Nft": {
+        "type": "object",
+        "required": ["_id", "teamId", "status", "metadata", "updatedAt", "createdAt"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "teamId": {
+            "type": "string"
+          },
+          "modelId": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/ToolRequestStatus"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/NftMetadata"
+          },
+          "mintAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "collectionAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "creator": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenStandard": {
+            "$ref": "#/components/schemas/TokenStandard",
+            "nullable": true
+          },
+          "collectionRoyalties": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "chain": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Model": {
+        "type": "object",
+        "required": ["_id", "teamId", "image", "imageId", "toolRequest", "toolRequestId"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "teamId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "$ref": "#/components/schemas/Media"
+          },
+          "imageId": {
+            "type": "string"
+          },
+          "mesh": {
+            "$ref": "#/components/schemas/Media",
+            "nullable": true
+          },
+          "meshId": {
+            "type": "string",
+            "nullable": true
+          },
+          "optimizedMesh": {
+            "$ref": "#/components/schemas/Media",
+            "nullable": true
+          },
+          "optimizedMeshId": {
+            "type": "string",
+            "nullable": true
+          },
+          "multiview": {
+            "$ref": "#/components/schemas/Media",
+            "nullable": true
+          },
+          "multiviewId": {
+            "type": "string",
+            "nullable": true
+          },
+          "views": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Media"
+            }
+          },
+          "viewsIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "texturedMesh": {
+            "$ref": "#/components/schemas/Media",
+            "nullable": true
+          },
+          "texturedMeshId": {
+            "type": "string",
+            "nullable": true
+          },
+          "texture": {
+            "$ref": "#/components/schemas/Media",
+            "nullable": true
+          },
+          "textureId": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "prompt": {
+            "type": "string",
+            "nullable": true
+          },
+          "style": {
+            "$ref": "#/components/schemas/Style",
+            "nullable": true
+          },
+          "nftId": {
+            "type": "string",
+            "nullable": true
+          },
+          "toolRequest": {
+            "$ref": "#/components/schemas/ToolRequest"
+          },
+          "toolRequestId": {
+            "type": "string"
+          }
+        }
+      },
+      "MessageContent": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "models": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Model"
+            },
+            "nullable": true
+          },
+          "medias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Media"
+            },
+            "nullable": true
+          },
+          "modelIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "nfts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Nft"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "required": ["_id", "createdAt", "updatedAt", "teamId", "sessionId", "role"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "teamId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "role": {
+            "$ref": "#/components/schemas/MessageRole"
+          },
+          "content": {
+            "$ref": "#/components/schemas/MessageContent",
+            "nullable": true
+          },
+          "toolRequest": {
+            "$ref": "#/components/schemas/ToolRequest",
+            "nullable": true
+          },
+          "toolRequestId": {
+            "type": "string",
+            "nullable": true
+          },
+          "toolCalls": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "Session": {
+        "type": "object",
+        "required": ["_id", "createdAt", "updatedAt", "teamId", "title"],
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "teamId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "Metadata": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "nullable": true
+          },
+          "offset": {
+            "type": "integer",
+            "nullable": true
+          },
+          "orderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderDirection": {
+            "$ref": "#/components/schemas/OrderDirection",
+            "nullable": true
+          },
+          "numElements": {
+            "type": "integer",
+            "nullable": true
+          },
+          "total": {
+            "type": "integer",
+            "nullable": true
+          },
+          "page": {
+            "type": "integer",
+            "nullable": true
+          },
+          "pages": {
+            "type": "integer",
+            "nullable": true
+          }
+        }
+      },
+      "ToolRequest": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "teamId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/ToolRequestType"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/ToolRequestPriority"
+          },
+          "payload": {
+            "type": "string"
+          },
+          "details": {
+            "type": "object",
+            "nullable": true
+          },
+          "credits": {
+            "type": "number",
+            "format": "float"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "$ref": "#/components/schemas/ToolRequestStatus"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "message": {
+            "type": "string"
+          },
+          "percentage": {
+            "type": "integer"
+          }
+        }
+      },
+      "ToolRequestConfirmation": {
+        "type": "object",
+        "properties": {
+          "toolRequest": {
+            "$ref": "#/components/schemas/ToolRequest"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Message"
+            }
+          },
+          "modelIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IDs of the models generated by the tool request"
+          },
+          "nftIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IDs of the NFTs generated by the tool request"
+          }
+        },
+        "example": {
+          "toolRequest": {
+            "_id": "7cfc2ed6-dd55-42ae-b47c-5ae71da2386f",
+            "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+            "sessionId": "85aaf438-9ad3-513a-af75-38612a0d2173",
+            "messageId": "4d60a1b6-7905-4ea6-b32f-e7991d4f42c1",
+            "type": "GENERATE_MODELS_FROM_PROMPT",
+            "priority": 1,
+            "payload": "{\"prompt\":\"a cat\",\"style\":\"lowPoly\",\"texture\":\"fast\",\"numberOfFaces\":\"10k\"}",
+            "details": {
+              "prompt": "a cat",
+              "style": "lowPoly",
+              "texture": "fast",
+              "numberOfFaces": "10k",
+              "numberOfModels": 1
+            },
+            "credits": 1,
+            "references": [
+              "cce77fc2-3fb6-4590-8906-9186bdbbffc4"
+            ],
+            "status": "IN_QUEUE",
+            "message": "Generating 1 model based on the request you provided.",
+            "percentage": 0,
+            "createdAt": "2025-06-12T12:28:48.130Z",
+            "updatedAt": "2025-06-12T12:28:48.137Z"
+          },
+          "messages": [
+            {
+              "_id": "544bf925-8947-4aa2-846a-a76d71936fe6",
+              "createdAt": "2025-06-12T12:28:48.128Z",
+              "updatedAt": "2025-06-12T12:28:48.128Z",
+              "sessionId": "85aaf438-9ad3-513a-af75-38612a0d2173",
+              "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+              "role": "assistant",
+              "content": {
+                "text": "Let me generate this 3D model for you!"
+              },
+              "toolRequest": null,
+              "toolCalls": [
+                {
+                  "id": "7cfc2ed6-dd55-42ae-b47c-5ae71da2386f",
+                  "function": {
+                    "name": "GENERATE_MODELS_FROM_PROMPT",
+                    "arguments": "{\"prompt\":\"a cat\"}"
+                  },
+                  "type": "function"
+                }
+              ],
+              "nftId": null,
+              "messageV3Migration": true
+            },
+            {
+              "_id": "4d60a1b6-7905-4ea6-b32f-e7991d4f42c1",
+              "createdAt": "2025-06-12T12:28:48.134Z",
+              "updatedAt": "2025-06-12T12:28:48.134Z",
+              "sessionId": "85aaf438-9ad3-513a-af75-38612a0d2173",
+              "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+              "role": "tool",
+              "content": {
+                "text": "Generating 1 model based on the request you provided.",
+                "modelIds": [
+                  "cce77fc2-3fb6-4590-8906-9186bdbbffc4"
+                ],
+                "models": []
+              },
+              "toolRequest": {
+                "_id": "7cfc2ed6-dd55-42ae-b47c-5ae71da2386f",
+                "teamId": "affcc319-998d-50f4-87c7-21f4f9c8e61e",
+                "sessionId": "85aaf438-9ad3-513a-af75-38612a0d2173",
+                "messageId": "4d60a1b6-7905-4ea6-b32f-e7991d4f42c1",
+                "type": "GENERATE_MODELS_FROM_PROMPT",
+                "priority": 1,
+                "payload": "{\"prompt\":\"a cat\",\"style\":\"lowPoly\",\"texture\":\"fast\",\"numberOfFaces\":\"10k\"}",
+                "details": {},
+                "credits": 1,
+                "references": [],
+                "status": "PENDING",
+                "message": "Building tool request",
+                "percentage": 0,
+                "createdAt": "2025-06-12T12:28:48.130Z",
+                "updatedAt": "2025-06-12T12:28:48.130Z"
+              },
+              "toolRequestId": "7cfc2ed6-dd55-42ae-b47c-5ae71da2386f",
+              "toolCalls": [],
+              "nftId": null,
+              "messageV3Migration": true
+            }
+          ],
+          "modelIds": [
+            "cce77fc2-3fb6-4590-8906-9186bdbbffc4"
+          ],
+          "nftIds": []
+        }
+      },
+      "SessionEventMessageUpdated": {
+        "type": "object",
+        "properties": {
+          "emittedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["message-updated"]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/Message"
+          }
+        }
+      },
+      "SessionEventMessageNewToken": {
+        "type": "object",
+        "properties": {
+          "emittedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["message-new-token"]
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "messageId": {
+                "type": "string"
+              },
+              "token": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "SessionEventModelUpdated": {
+        "type": "object",
+        "properties": {
+          "emittedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["model-updated"]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/Model"
+          }
+        }
+      },
+      "SessionEventToolRequestUpdated": {
+        "type": "object",
+        "properties": {
+          "emittedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["tool-request-updated"]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/ToolRequest"
+          }
+        }
+      },
+      "ModelPage": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Model"
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          }
+        }
+      },
+      "Options": {
+        "type": "object",
+        "properties": {
+          "style": {
+            "$ref": "#/components/schemas/Style",
+            "nullable": true
+          },
+          "texture": {
+            "$ref": "#/components/schemas/TextureType",
+            "nullable": true
+          },
+          "numberOfFaces": {
+            "$ref": "#/components/schemas/NumberOfFaces",
+            "nullable": true
+          },
+          "numberOfModels": {
+            "$ref": "#/components/schemas/NumberOfModels",
+            "nullable": true
+          }
+        }
+      },
+      "NftAttributeInput": {
+        "type": "object",
+        "required": ["trait_type", "value"],
+        "properties": {
+          "trait_type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "SendMessageInput": {
+        "type": "object",
+        "required": ["content"],
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "imageUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/Options",
+            "nullable": true
+          }
+        },
+        "example": {
+          "content": "Hello, world!",
+          "imageUrls": ["https://example.com/image.jpg"],
+          "options": {
+            "style": "realistic"
+          }
+        }
+      },
+      "GenerateModelFromPromptInput": {
+        "type": "object",
+        "required": ["prompt"],
+        "properties": {
+          "prompt": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/Options",
+            "nullable": true
+          }
+        },
+        "example": {
+          "prompt": "a cat",
+          "sessionId": "123e4567-e89b-12d3-a456-426614174000",
+          "options": {
+            "style": "realistic"
+          }
+        }
+      },
+      "GenerateModelFromImageInput": {
+        "type": "object",
+        "required": ["imageUrl"],
+        "properties": {
+          "imageUrl": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/Options",
+            "nullable": true
+          }
+        },
+        "example": {
+          "imageUrl": "https://example.com/image.jpg",
+          "sessionId": "123e4567-e89b-12d3-a456-426614174000",
+          "options": {
+            "style": "realistic"
+          }
+        }
+      },
+      "GenerateModelFromReferencesInput": {
+        "type": "object",
+        "required": ["imageUrls"],
+        "properties": {
+          "imageUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "instructions": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/Options",
+            "nullable": true
+          }
+        },
+        "example": {
+          "imageUrls": ["https://example.com/image1.jpg", "https://example.com/image2.jpg"],
+          "instructions": "A cat",
+          "sessionId": "123e4567-e89b-12d3-a456-426614174000",
+          "options": {
+            "style": "realistic"
+          }
+        }
+      },
+      "EditModelInput": {
+        "type": "object",
+        "required": ["edit", "modelId"],
+        "properties": {
+          "edit": {
+            "type": "string"
+          },
+          "modelId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/Options",
+            "nullable": true
+          }
+        },
+        "example": {
+          "edit": "Make it red",
+          "modelId": "123e4567-e89b-12d3-a456-426614174000",
+          "sessionId": "123e4567-e89b-12d3-a456-426614174000",
+          "options": {
+            "style": "realistic"
+          }
+        }
+      },
+      "Limit": {
+        "type": "integer",
+        "description": "The maximum number of items to return in a single response",
+        "example": 10
+      },
+      "Offset": {
+        "type": "integer",
+        "description": "The number of items to skip before starting to collect the result set",
+        "example": 0
+      },
+      "OrderBy": {
+        "type": "string",
+        "description": "The field by which to order the results",
+        "example": "createdAt"
+      },
+      "OrderDirection": {
+        "type": "string",
+        "enum": ["asc", "desc"],
+        "description": "The direction in which to order the results",
+        "example": "desc"
+      }
+    },
+    "requestBodies": {
+      "SendMessage": {
+        "description": "Message content",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SendMessageInput"
+            },
+            "examples": {
+              "simple": {
+                "summary": "Simple text message",
+                "value": {
+                  "content": "Hello, world!"
+                }
+              },
+              "messageWithImageAndOptions": {
+                "summary": "A message with an image and options",
+                "value": {
+                  "content": "Create a 3D model from this image.",
+                  "imageUrls": [
+                    "https://example.com/image.jpg"
+                  ],
+                  "options": {
+                    "style": "realistic",
+                    "texture": "hd",
+                    "numberOfFaces": "50k"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": true
+      },
+      "GenerateModelFromPrompt": {
+        "description": "Prompt and options",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/GenerateModelFromPromptInput"
+            },
+            "examples": {
+              "simple": {
+                "summary": "Simple prompt",
+                "value": {
+                  "prompt": "a cat"
+                }
+              },
+              "promptWithOptions": {
+                "summary": "A prompt with options",
+                "value": {
+                  "prompt": "a cat",
+                  "options": {
+                    "style": "lowPoly",
+                    "texture": "fast",
+                    "numberOfFaces": "10k"
+                  }
+                }
+              },
+              "promptWithAllOptions": {
+                "summary": "A prompt with all options",
+                "value": {
+                  "prompt": "a majestic lion",
+                  "options": {
+                    "style": "realistic",
+                    "texture": "hd",
+                    "numberOfFaces": "100k",
+                    "numberOfModels": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": true
+      },
+      "GenerateModelFromImage": {
+        "description": "Image URL and options",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/GenerateModelFromImageInput"
+            },
+            "examples": {
+              "simple": {
+                "summary": "Simple image",
+                "value": {
+                  "imageUrl": "https://example.com/image.jpg"
+                }
+              },
+              "imageWithOptions": {
+                "summary": "An image with options",
+                "value": {
+                  "imageUrl": "https://example.com/image.jpg",
+                  "options": {
+                    "style": "voxel",
+                    "texture": "hd"
+                  }
+                }
+              },
+              "imageWithAllOptions": {
+                "summary": "An image with all options",
+                "value": {
+                  "imageUrl": "https://example.com/image.jpg",
+                  "options": {
+                    "style": "sciFi",
+                    "texture": "fast",
+                    "numberOfFaces": "20k",
+                    "numberOfModels": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": true
+      },
+      "GenerateModelFromReferences": {
+        "description": "Reference images and options",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/GenerateModelFromReferencesInput"
+            },
+            "examples": {
+              "simple": {
+                "summary": "Simple references",
+                "value": {
+                  "imageUrls": ["https://example.com/image1.jpg", "https://example.com/image2.jpg"]
+                }
+              },
+              "referencesWithOptions": {
+                "summary": "References with instructions and options",
+                "value": {
+                  "imageUrls": ["https://example.com/image1.jpg", "https://example.com/image2.jpg"],
+                  "instructions": "A cat",
+                  "options": {
+                    "style": "stylized"
+                  }
+                }
+              },
+              "referencesWithAllOptions": {
+                "summary": "References with instructions and all options",
+                "value": {
+                  "imageUrls": ["https://example.com/image1.jpg", "https://example.com/image2.jpg"],
+                  "instructions": "A powerful dragon",
+                  "options": {
+                    "style": "fantasy",
+                    "texture": "hd",
+                    "numberOfFaces": "50k",
+                    "numberOfModels": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": true
+      },
+      "EditModel": {
+        "description": "Edit details and options",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/EditModelInput"
+            },
+            "examples": {
+              "simple": {
+                "summary": "Simple edit",
+                "value": {
+                  "edit": "Make it red",
+                  "modelId": "123e4567-e89b-12d3-a456-426614174000"
+                }
+              },
+              "editWithOptions": {
+                "summary": "An edit with options",
+                "value": {
+                  "edit": "Make it red",
+                  "modelId": "123e4567-e89b-12d3-a456-426614174000",
+                  "options": {
+                    "texture": "hd"
+                  }
+                }
+              },
+              "editWithAllOptions": {
+                "summary": "An edit with all options",
+                "value": {
+                  "edit": "Change the material to wood",
+                  "modelId": "123e4567-e89b-12d3-a456-426614174000",
+                  "options": {
+                    "style": "lowPoly",
+                    "texture": "fast",
+                    "numberOfFaces": "10k",
+                    "numberOfModels": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": true
+      }
+    },
+    "parameters": {
+      "ContentTypeHeader": {
+        "name": "Content-Type",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Specifies the media type of the request body. This is explicitly defined as a parameter to ensure compatibility with certain tools, although it is typically handled by the `requestBody.content` field.",
+        "example": "application/json"
+      },
+      "AuthorizationHeader": {
+        "name": "Authorization",
+        "in": "header",
+        "required": true,
+        "example": "Bearer YOUR_API_KEY",
+        "schema": {
+          "type": "string"
+        },
+        "description": "API key needed to access the endpoints. Format: Bearer {token}"
+      }
+    },
+    "responses": {
+      "ToolRequestConfirmation": {
+        "description": "Successful operation",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ToolRequestConfirmation"
+            }
+          }
+        }
+      },
+      "BadRequest": {
+        "description": "Bad request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HandledError"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HandledError"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HandledError"
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal server error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/HandledError"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "API key needed to access the endpoints. Format: Bearer {token}"
+      }
+    }
+  }
+}
